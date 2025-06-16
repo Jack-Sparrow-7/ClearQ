@@ -52,7 +52,7 @@ Initializes and links all modules in setup() and coordinates execution in loop()
 ```mermaid
 graph TD;
     Flutter_App -->|Sends Order| Firebase
-    Cam -->|Scans QR| Esp32
-    Firebase -->|Fetch Order| ESP32
+    ESP32 -->|Scans QR| Firebase
+    ESP32 -->|Fetch Order| Firebase
     ESP32 -->|Show| LCD
     ESP32 -->|Print| Thermal_Printer
