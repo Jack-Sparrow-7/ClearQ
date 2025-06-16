@@ -1,4 +1,4 @@
-# ClearQ 🍽️
+# ClearQ
 
 ClearQ is a smart food ordering and billing system designed to streamline the canteen experience in colleges. It separates UPI-based students from the manual billing queue by allowing them to pre-order food via a mobile app built with Flutter. At the counter, students scan their generated QR/barcode, and the hardware system fetches order details from Firebase and prints the bill using a thermal printer.
 
@@ -52,7 +52,7 @@ Initializes and links all modules in setup() and coordinates execution in loop()
 ```mermaid
 graph TD;
     Flutter_App -->|Sends Order| Firebase
-    ESP32 -->|Scans QR| Firebase
-    ESP32 -->|Fetch Order| Firebase
+    Cam -->|Scans QR| Esp32
+    Firebase -->|Fetch Order| ESP32
     ESP32 -->|Show| LCD
     ESP32 -->|Print| Thermal_Printer
