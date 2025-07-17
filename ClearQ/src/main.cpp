@@ -1,9 +1,9 @@
-#include <Arduino.h>
+#include <core/clearq_system.h>
 
-void setup()
-{
+void setup(){
+    setupSystem();
 }
 
-void loop()
-{
+void loop(){
+    manageSystem();
 }
