@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "807302325088",
+    "firebase_url": "https://clearq-811a8-default-rtdb.firebaseio.com",
+    "project_id": "clearq-811a8",
+    "storage_bucket": "clearq-811a8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807302325088:android:1bee7870cea81cb51bf405",
+        "android_client_info": {
+          "package_name": "com.example.clear_q"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcEPlk0iGGpKK8n1IjE0t16KU1mPwDIcg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
