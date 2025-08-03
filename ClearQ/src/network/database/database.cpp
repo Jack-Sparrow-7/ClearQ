@@ -19,18 +19,20 @@ void dataBaseSetup()
     Serial.println("Initialized Database!");
 }
 
-void updateStatus(String status,String orderId)
+void updateStatus(String status, String orderId)
 {
-    String path = "/orders/"+orderId+"/status";
-    database.set<String>(aClient,path,status);
+    String path = "/orders/" + orderId + "/status";
+    database.set<String>(aClient, path, status);
 }
 
 String getData(String orderId)
 {
-    Serial.println("Getting Data");
     String path = "/orders/" + orderId;
     String data = database.get<String>(aClient, path);
+    if (data == NULL)
+    {
+        Serial.println("Your order not found!");
+    }
+
     return data;
 }
-
-

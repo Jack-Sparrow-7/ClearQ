@@ -11,5 +11,7 @@ extern String userPassword;
 extern String dataBaseUrl;
 extern int txPin;
 extern int rxPin;
+extern int camRxPin;
+extern int camTxPin;
 
 #endif

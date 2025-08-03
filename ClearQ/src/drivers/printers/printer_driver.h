@@ -2,7 +2,7 @@
 #define Printer_Driver_H
 
 #include<Arduino.h>
-#include<Adafruit_Thermal.h>
+#include<HardwareSerial.h>
 #include<utils/constants.h>
 
 extern void setupPrinter();

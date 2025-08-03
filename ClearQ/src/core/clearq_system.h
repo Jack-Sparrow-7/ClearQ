@@ -5,7 +5,9 @@
 #include <network/internet/wifi_network.h>
 #include <network/database/database.h>
 #include <ArduinoJson.h>
-#include <hardware/printers/printer_driver.h>
+#include <drivers/printers/printer_driver.h>
+#include <drivers/qr scanner/qr_scanner_driver.h>
+#include <utils/constants.h>
 
 void setupSystem();
 

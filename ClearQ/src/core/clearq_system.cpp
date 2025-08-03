@@ -1,8 +1,11 @@
 #include "clearq_system.h"
 
+String lastOrderId = "";
+
 void setupSystem()
 {
     Serial.begin(9600);
+    setupQrScanner();
     Serial.println("Serial Initialized");
     connectWifi(wifiName, wifiPassword);
     dataBaseSetup();
@@ -15,17 +18,20 @@ void manageSystem()
     if (app.ready())
     {
         String orderId;
-        while (!Serial)
+        while (orderId.isEmpty() || orderId == NULL)
         {
+            orderId = scanOrderId();
+            delay(200);
         }
-        Serial.println("Enter orderId:");
-        while (orderId.isEmpty())
+        orderId.trim();
+        Serial.println(orderId);
+        if (orderId == lastOrderId)
         {
-            orderId = Serial.readStringUntil('\n');
-            orderId.trim();
+            return;
         }
-
+        
         String data = getData(orderId);
+        lastOrderId = orderId;
 
         JsonDocument doc;
         deserializeJson(doc, data);
@@ -41,7 +47,7 @@ void manageSystem()
             int itemCount = doc["item-count"];
             int quantityCount = doc["quantity-count"];
             JsonArray items = doc["items"];
-            printHeader(date,time);
+            printHeader(date, time);
             for (JsonObject item : items)
             {
                 String name = item["name"];
@@ -49,10 +55,10 @@ void manageSystem()
                 int price = item["price"];
                 int quantity = item["quantity"];
                 int total = item["total"];
-                printItem(name,quantity,price,total);
+                printItem(name, quantity, price, total);
             }
-            printFooter(grandTotal,itemCount,quantityCount);
-            updateStatus("completed",orderId);
+            printFooter(grandTotal, itemCount, quantityCount);
+            updateStatus("completed", orderId);
         }
         else if (status == "completed")
         {
